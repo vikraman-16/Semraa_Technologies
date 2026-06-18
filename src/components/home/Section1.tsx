@@ -12,6 +12,7 @@ const codeLines = [
   `const idea = "Your Business";`,
   `const ui = "Premium Design";`,
   `const app = "Web + Mobile";`,
+  `const game = "Unity Games";`,
   `const api = "Secure Backend";`,
   `launch("Success");`,
 ];
@@ -29,13 +30,13 @@ const HomeSection1 = ({ id }: Readonly<{ id?: string }>) => {
       index++;
 
       if (index <= fullCode.length) {
-        timeout = setTimeout(typeCode, 45);
+        timeout = setTimeout(typeCode, 55);
       } else {
         timeout = setTimeout(() => {
           index = 0;
           setTypedCode("");
           typeCode();
-        }, 1800);
+        }, 2200);
       }
     };
 
@@ -48,15 +49,19 @@ const HomeSection1 = ({ id }: Readonly<{ id?: string }>) => {
     <ResponsiveBox
       id={id}
       classNames="
+        no-select
         relative overflow-hidden
         bg-[#081120]
         min-h-screen
         items-center justify-center
+        pt-[9rem]
+        md:pt-[10rem]
+        lg:pt-[8.5rem]
       "
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_22%,rgba(255,106,0,0.14),transparent_28%),radial-gradient(circle_at_8%_85%,rgba(255,106,0,0.08),transparent_24%)]" />
 
-      <ConstraintedBox classNames="relative z-[5] px-6 pt-8 pb-10 lg:pt-10 lg:pb-12">
+      <ConstraintedBox classNames="relative z-[5] px-5 pb-10 md:px-6 lg:pb-12">
         <GridBox
           classNames="
             w-full
@@ -71,9 +76,13 @@ const HomeSection1 = ({ id }: Readonly<{ id?: string }>) => {
             <h1
               className="
                 max-w-[680px]
-                text-4xl/tight
-                md:text-5xl/tight
-                xl:text-6xl/tight
+                text-[2.35rem]
+                leading-[1.15]
+                sm:text-5xl
+                md:text-5xl
+                md:leading-tight
+                xl:text-6xl
+                xl:leading-tight
                 font-extrabold
                 text-white
                 text-center
@@ -89,16 +98,20 @@ const HomeSection1 = ({ id }: Readonly<{ id?: string }>) => {
               className="
                 mt-6
                 max-w-[620px]
-                text-base/7
-                md:text-lg/8
+                text-base
+                leading-8
+                md:text-lg
+                md:leading-8
                 text-[#E4ECF7]
                 text-center
                 lg:text-start
               "
             >
               <Balancer>
-We Design Your Success.<br></br>
-Crafting technology-driven solutions that help businesses innovate, grow and stay ahead in a digital world.
+                We Design Your Success.
+                <br />
+                Crafting technology-driven solutions that help businesses
+                innovate, grow and stay ahead in a digital world.
               </Balancer>
             </p>
 
@@ -115,11 +128,13 @@ Crafting technology-driven solutions that help businesses innovate, grow and sta
                 w-full
                 max-w-[700px]
                 overflow-hidden
-                rounded-[1.75rem]
+                rounded-[1.5rem]
                 border
                 border-[#FF6A00]/30
                 bg-[#0D1728]/95
-                p-5
+                p-4
+                md:rounded-[1.75rem]
+                md:p-5
               "
             >
               <div className="pointer-events-none absolute -right-24 -top-24 h-56 w-56 rounded-full bg-[#FF6A00]/10" />
@@ -132,7 +147,7 @@ Crafting technology-driven solutions that help businesses innovate, grow and sta
                   <span className="h-3 w-3 rounded-full bg-[#7A8AA0]" />
                 </div>
 
-                <p className="live-build-text text-xs md:text-sm font-bold tracking-[0.25em] text-[#FF8124]">
+                <p className="live-build-text text-xs font-bold tracking-[0.22em] text-[#FF8124] md:text-sm md:tracking-[0.25em]">
                   LIVE BUILD
                 </p>
               </div>
@@ -166,8 +181,8 @@ Crafting technology-driven solutions that help businesses innovate, grow and sta
 
                   <div className="stat-card">
                     <span>03</span>
-                    <h3>Backend</h3>
-                    <p>Secure APIs & servers</p>
+                    <h3>Game Development</h3>
+                    <p>Unity 2D & 3D games</p>
                   </div>
                 </div>
               </div>
@@ -176,9 +191,11 @@ Crafting technology-driven solutions that help businesses innovate, grow and sta
                 <div className="mini-card">
                   <span>Plan</span>
                 </div>
+
                 <div className="mini-card">
                   <span>Design</span>
                 </div>
+
                 <div className="mini-card">
                   <span>Launch</span>
                 </div>

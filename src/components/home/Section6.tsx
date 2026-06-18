@@ -10,6 +10,7 @@ const GOOGLE_SCRIPT_URL =
 const HomeSection6 = ({ id }: { id?: string }) => {
   const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,6 +30,7 @@ const HomeSection6 = ({ id }: { id?: string }) => {
 
       setStatus("Message sent successfully!");
       form.reset();
+      setSelectedService("");
     } catch (error) {
       console.error(error);
       setStatus("Something went wrong. Please try again.");
@@ -66,15 +68,7 @@ const HomeSection6 = ({ id }: { id?: string }) => {
 
         <form
           onSubmit={handleSubmit}
-          className="
-            contact-form
-            mx-auto mt-8 max-w-4xl
-            rounded-[1.5rem]
-            border border-[#FF6A00]/25
-            bg-[#0B1628]
-            p-4
-            md:mt-12 md:rounded-[2rem] md:p-8
-          "
+          className="contact-form mx-auto mt-8 max-w-4xl rounded-[1.5rem] border border-[#FF6A00]/25 bg-[#0B1628] p-4 md:mt-12 md:rounded-[2rem] md:p-8"
         >
           <div className="grid gap-4 md:grid-cols-2 md:gap-5">
             <input
@@ -101,8 +95,11 @@ const HomeSection6 = ({ id }: { id?: string }) => {
             <select
               name="service"
               required
-              defaultValue=""
-              className="contact-input h-14 text-base md:h-16"
+              value={selectedService}
+              onChange={(e) => setSelectedService(e.target.value)}
+              className={`contact-input h-14 text-base md:h-16 ${
+                selectedService ? "text-white" : "text-[#8A93A5]"
+              }`}
             >
               <option value="" disabled>
                 Select Service *
@@ -112,9 +109,17 @@ const HomeSection6 = ({ id }: { id?: string }) => {
                 Mobile App Development
               </option>
               <option value="Game Development">Game Development</option>
+              <option value="Multiplayer Game Development">
+                Multiplayer Game Development
+              </option>
               <option value="Backend Development">Backend Development</option>
               <option value="UI / UX Design">UI / UX Design</option>
               <option value="Cloud & DevOps">Cloud & DevOps</option>
+              <option value="AI & Automation">AI & Automation</option>
+              <option value="E-Commerce Solutions">E-Commerce Solutions</option>
+              <option value="Custom Software Development">
+                Custom Software Development
+              </option>
               <option value="Software Consulting">Software Consulting</option>
             </select>
           </div>
@@ -124,21 +129,13 @@ const HomeSection6 = ({ id }: { id?: string }) => {
             required
             rows={5}
             placeholder="Tell us about your project *"
-            className="contact-input mt-4 w-full resize-none text-base md:mt-5 md:rows-6"
+            className="contact-input mt-4 w-full resize-none text-base md:mt-5"
           />
 
           <button
             type="submit"
             disabled={loading}
-            className="
-              mt-5 w-full rounded-xl bg-[#FF6A00]
-              px-8 py-4 font-bold text-white
-              transition-all duration-300
-              hover:bg-[#FF8124]
-              hover:shadow-[0_0_25px_rgba(255,106,0,0.4)]
-              disabled:opacity-60
-              md:w-auto
-            "
+            className="mt-5 w-full rounded-xl bg-[#FF6A00] px-8 py-4 font-bold text-white transition-all duration-300 hover:bg-[#FF8124] hover:shadow-[0_0_25px_rgba(255,106,0,0.4)] disabled:opacity-60 md:w-auto"
           >
             {loading ? "Sending..." : "Send Message"}
           </button>
