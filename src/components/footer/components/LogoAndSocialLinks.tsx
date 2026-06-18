@@ -1,9 +1,6 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
 import Image from "next/image";
 import Column from "@/components/core/Column";
 import Row from "@/components/core/Row";
-import socialLinks from "@/data/socialLinks";
 
 const FooterLogoAndSocialLinks = () => {
   return (
@@ -23,17 +20,7 @@ const FooterLogoAndSocialLinks = () => {
       </p>
 
       <Row classNames="gap-3">
-        {/* {socialLinks.slice(0, 5).map((link, index) => (
-          <Link
-            key={`social-link-${index}`}
-            href={link.url}
-            target="_blank"
-            aria-label={`${link.name}`}
-            className="footer-social-icon flex h-11 w-11 items-center justify-center rounded-full border border-[#FF6A00]/35 bg-[#081120] text-white"
-          >
-            <FontAwesomeIcon icon={link.icon} />
-          </Link>
-        ))} */}
+        <span className="hidden">Social links disabled</span>
       </Row>
     </Column>
   );
