@@ -20,152 +20,170 @@ const NavBar = () => {
 
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
 
-  const toggleMenu = () => {
-    if (!mobileMenuRef.current) return;
-    const cList = mobileMenuRef.current.classList;
-    if (
-      cList.contains("flex") &&
-      cList.contains("opacity-1") &&
-      cList.contains("z-[1000]") &&
-      cList.contains("visible")
-    ) {
-      hideMobileMenu();
-    } else {
-      showMobileMenu();
-    }
-  };
-
   const showMobileMenu = () => {
     if (!mobileMenuRef.current) return;
-    const cList = mobileMenuRef.current.classList;
 
-    if (
-      cList.contains("hidden") &&
-      cList.contains("opacity-0") &&
-      cList.contains("z-0") &&
-      cList.contains("invisible")
-    ) {
-      cList.remove("hidden");
-      cList.remove("opacity-0");
-      cList.remove("z-0");
-      cList.remove("invisible");
-    }
+    mobileMenuRef.current.classList.remove(
+      "hidden",
+      "opacity-0",
+      "z-0",
+      "invisible"
+    );
 
-    cList.add("flex");
-    cList.add("opacity-1");
-    cList.add("z-[1000]");
-    cList.add("visible");
+    mobileMenuRef.current.classList.add(
+      "flex",
+      "opacity-100",
+      "z-[1000]",
+      "visible"
+    );
+
     setMobileMenuVisible(true);
   };
 
   const hideMobileMenu = () => {
     if (!mobileMenuRef.current) return;
-    const cList = mobileMenuRef.current.classList;
 
-    if (
-      cList.contains("flex") &&
-      cList.contains("opacity-1") &&
-      cList.contains("z-[1000]") &&
-      cList.contains("visible")
-    ) {
-      cList.remove("flex");
-      cList.remove("opacity-1");
-      cList.remove("z-[1000]");
-      cList.remove("visible");
-    }
+    mobileMenuRef.current.classList.remove(
+      "flex",
+      "opacity-100",
+      "z-[1000]",
+      "visible"
+    );
 
-    cList.add("hidden");
-    cList.add("opacity-0");
-    cList.add("z-0");
-    cList.add("invisible");
+    mobileMenuRef.current.classList.add(
+      "hidden",
+      "opacity-0",
+      "z-0",
+      "invisible"
+    );
+
     setMobileMenuVisible(false);
+  };
+
+  const toggleMenu = () => {
+    mobileMenuVisible ? hideMobileMenu() : showMobileMenu();
   };
 
   useOnClickOutside(navRef, hideMobileMenu);
 
   return (
     <div
-      className={`fixed w-screen h-[5rem] z-[1000] top-0 ${
-        isScrolled ? "backdrop-blur-sm" : "backdrop-blur-0"
-      } ${
-        isScrolled ? "shadow-[0_4px_30px_rgba(0,0,0,0.1)]" : "shadow-none"
-      } gradient_bg`}
       ref={navRef}
+      className={`
+        fixed left-0 top-0 z-[1000]
+        h-[8rem]
+        w-full
+        border-b border-[#FF6A00]/25
+        bg-[#081120]
+        text-white
+        ${
+          isScrolled
+            ? "shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+            : "shadow-none"
+        }
+      `}
     >
-      <div className="h-full flex mx-auto px-4 py-6 constrained-width">
-        <div className="w-full flex justify-between items-center">
-          <Link
-            href="/"
-            className="w-fit h-fit flex flex-row items-center justify-center"
-          >
-            <Image
-              src="/logo.png"
-              alt="profile"
-              width={286}
-              height={144}
-              sizes="100%"
-              priority
-              placeholder="blur"
-              blurDataURL="/icon-alt.png"
-              className="h-10 lg:h-12 w-auto"
-            />
-          </Link>
+      <div className="flex h-full w-full items-center justify-between px-4 md:px-8">
+        <Link href="/" className="flex items-center justify-start">
+          <Image
+            src="/logo-horizontal-new.png"
+            alt="Semraa Technology"
+            width={2800}
+            height={350}
+            priority
+            className="
+              w-[360px]
+              h-auto
+              object-contain
+              object-left
+              select-none
+              md:w-[400px]
+              lg:w-[450px]
+              xl:w-[450 px]
+            "
+          />
+        </Link>
 
-          <div className="flex justify-end lg:relative">
+        <div className="ml-auto flex justify-end lg:relative">
+          <button
+            type="button"
+            name="menu-btn"
+            aria-label="menu button"
+            className="
+              flex h-14 w-14 items-center justify-center
+              rounded-2xl
+              bg-[#FF6A00]
+              text-white
+              hover:bg-[#FF8124]
+              md:h-16 md:w-16
+            "
+            onClick={toggleMenu}
+          >
+            {mobileMenuVisible ? (
+              <FontAwesomeIcon icon={faXmark} className="text-3xl" />
+            ) : (
+              <FontAwesomeIcon icon={faBars} className="text-3xl" />
+            )}
+          </button>
+
+          <div
+            ref={mobileMenuRef}
+            className="
+              hidden invisible opacity-0 z-0
+              absolute right-0 top-[calc(100%+1rem)]
+              h-auto max-h-[24rem]
+              w-[16rem]
+              flex-col items-center justify-start
+              overflow-hidden
+              rounded-2xl
+              border border-[#FF6A00]/25
+              bg-[#101A2B]
+              p-4
+              text-center text-white
+
+              max-lg:fixed
+              max-lg:left-0
+              max-lg:right-0
+              max-lg:top-0
+              max-lg:h-screen
+              max-lg:max-h-screen
+              max-lg:w-screen
+              max-lg:rounded-none
+              max-lg:border-0
+              max-lg:bg-[#081120]
+              max-lg:p-6
+              max-lg:pt-28
+            "
+          >
             <button
               type="button"
-              name="menu-btn"
-              aria-label="menu button"
-              className="outline-none menu-button"
+              name="close-mobile-menu-btn"
+              aria-label="close-mobile-menu-btn"
+              className="
+                absolute right-6 top-6 z-[1001]
+                flex h-14 w-14 items-center justify-center
+                rounded-2xl
+                bg-[#FF6A00]
+                text-white
+                hover:bg-[#FF8124]
+                lg:hidden
+              "
               onClick={toggleMenu}
             >
-              {mobileMenuVisible ? (
-                <FontAwesomeIcon
-                  icon={faXmark}
-                  className="text-2xl/6 md:text-3xl/6 hover:scale-110 transition duration-300 ease-in-out"
-                />
-              ) : (
-                <FontAwesomeIcon
-                  icon={faBars}
-                  className="text-2xl/6 md:text-3xl/6 hover:scale-110 transition duration-300 ease-in-out"
-                />
-              )}
+              <FontAwesomeIcon icon={faXmark} className="text-3xl" />
             </button>
 
-            {/*  Menu Items */}
-
-            <div
-              className="flex-col justify-center lg:justify-start items-center m-0 p-4 text-center gradient_bg w-screen lg:max-w-[16rem] h-screen lg:max-h-[22rem] absolute top-0 lg:top-[calc(100%+1rem)] right-0 transition duration-300 ease-in-out drop_out hidden opacity-0 z-0 invisible overflow-hidden lg:border-[1px] lg:rounded-[var(--borderRadius)]"
-              ref={mobileMenuRef}
-            >
-              <button
-                type="button"
-                name="close-mobile-menu-btn"
-                aria-label="close-mobile-menu-btn"
-                className="outline-none lg:hidden absolute top-4 right-4 z-[1001] group"
-                onClick={toggleMenu}
-              >
-                <FontAwesomeIcon
-                  icon={faXmark}
-                  className="text-2xl/6 md:text-3xl/6 hover:scale-110 transition duration-300 ease-in-out"
+            <div className="flex w-full flex-col items-center justify-center gap-3 list-none lg:justify-start">
+              {navMenus.map((menu, index) => (
+                <MenuItems
+                  items={menu}
+                  key={`mobile-menu-item-${index}`}
+                  depthLevel={0}
+                  mobileNav={mobileMenuVisible}
+                  handleCloseMobileMenu={hideMobileMenu}
+                  current={visibleSection}
                 />
-              </button>
-
-              <div className="w-full flex flex-col list-none justify-center lg:justify-start items-center gap-4">
-                {navMenus.map((menu, index) => {
-                  const depthLevel = 0;
-                  return (
-                    <MenuItems
-                      items={menu}
-                      key={`mobile-menu-item-${index}`}
-                      depthLevel={depthLevel}
-                      mobileNav={mobileMenuVisible}
-                      handleCloseMobileMenu={hideMobileMenu}
-                      current={visibleSection}
-                    />
-                  );
-                })}
-              </div>
+              ))}
             </div>
           </div>
         </div>

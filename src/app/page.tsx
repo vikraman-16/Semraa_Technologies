@@ -1,5 +1,8 @@
 import { Suspense } from "react";
+
 import PageBox from "@/components/core/PageBox";
+import GlowDivider from "@/components/core/GlowDivider";
+
 import HomeSection1 from "@/components/home/Section1";
 import HomeSection2 from "@/components/home/Section2";
 import HomeSection3 from "@/components/home/Section3";
@@ -12,11 +15,20 @@ const Home = () => {
     <PageBox>
       <Suspense>
         <HomeSection1 id="home" />
+
         <HomeSection2 id="services" />
-        {/* <HomeSection3 id="projects" />
-        <HomeSection4 id="about" />
+        <GlowDivider />
+
+        <HomeSection3 id="projects" />
+        <GlowDivider />
+
+        {/* <HomeSection4 id="about" />
+        <GlowDivider /> */}
+
         <HomeSection5 id="contact" />
-        <HomeSection6 id="contact" /> */}
+        <GlowDivider />
+
+        <HomeSection6 id="contact-form" />
       </Suspense>
     </PageBox>
   );

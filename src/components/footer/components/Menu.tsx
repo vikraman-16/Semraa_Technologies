@@ -4,25 +4,22 @@ import footerMenu from "@/data/footerMenu";
 
 const FooterMenu = () => {
   return (
-    <Column classNames="w-full justify-between gap-8 mt-8 md:flex-row">
-      {footerMenu.map((menu, index) => {
-        return (
-          <Column key={`menu-${index}`} classNames="gap-2">
-            {menu.map((item, itemIndex) => {
-              return (
-                <p key={`menu-item-${itemIndex}`} className="text-base/6">
-                  <Link
-                    href={item.path}
-                    className="text-[var(--textColor)] hover:underline"
-                  >
-                    {item.title}
-                  </Link>
-                </p>
-              );
-            })}
-          </Column>
-        );
-      })}
+    <Column classNames="gap-5 items-end text-right">
+      <p className="text-sm font-bold uppercase tracking-[0.3em] text-[#FF6A00]">
+        Quick Links
+      </p>
+
+      <div className="grid grid-cols-2 gap-x-20 gap-y-3 text-right">
+        {footerMenu.flat().map((item, index) => (
+          <Link
+            key={`menu-item-${index}`}
+            href={item.path}
+            className="footer-menu-link inline-block text-base text-[#DCE8F8]"
+          >
+            {item.title}
+          </Link>
+        ))}
+      </div>
     </Column>
   );
 };

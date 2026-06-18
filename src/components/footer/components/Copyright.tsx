@@ -3,14 +3,11 @@ import Column from "@/components/core/Column";
 
 const FooterCopyright = () => {
   return (
-    <Column classNames="mt-8 justify-center items-center mx-auto">
-      <p className="text-base/6 text-center mx-auto">
-        Built with ❤️ in India for the world.
-      </p>
-      <p className="text-sm/6 text-center mx-auto">
+    <Column classNames="mt-10 items-center justify-center border-t border-[#FF6A00]/15 pt-6">
+      <p className="text-center text-sm text-[#B7C3D4]">
         Copyright © 2021-2024{" "}
-        <Link href="/" className="text-[var(--textColor)] hover:underline">
-          NixLab Technologies
+        <Link href="/" className="font-semibold text-[#FF6A00] hover:underline">
+          Semraa Technologies
         </Link>
         . All Rights Reserved.
       </p>

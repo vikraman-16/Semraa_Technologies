@@ -1,24 +1,43 @@
-import ConstraintedBox from "@/components/core/ConstraintedBox";
 import ResponsiveBox from "@/components/core/ResponsiveBox";
-import GridBox from "@/components/core/GridBox";
-import SectionTitle from "@/components/common/SectionTitle";
-import SkillItem from "./components/SkillItem";
+import ConstraintedBox from "@/components/core/ConstraintedBox";
 import skills from "@/data/skills";
+import SkillItem from "./components/SkillItem";
 
 const HomeSection4 = ({ id }: { id?: string }) => {
   return (
     <ResponsiveBox
-      classNames="bg-[var(--bgColor)] min-h-[calc(100vh-5rem)] items-center justify-center"
       id={id}
+      classNames="relative overflow-hidden bg-[#081120] py-20"
     >
-      <ConstraintedBox classNames="p-4 py-16">
-        <SectionTitle>Skills</SectionTitle>
+      <ConstraintedBox classNames="relative z-10 px-4">
+        {/* Section Header */}
+        <div className="mb-16 flex flex-col items-center justify-center text-center w-full">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#FF6A00]">
+            OUR SKILLS
+          </p>
 
-        <GridBox classNames="justify-items-center grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 md:grid-cols-2 mt-16">
-          {skills.map((skill, index) => {
-            return <SkillItem key={`skill-${index}`} data={skill} />;
-          })}
-        </GridBox>
+          <h2 className="mt-4 text-3xl md:text-5xl font-bold text-white text-center">
+            Technologies & Services
+          </h2>
+
+          <p className="mt-5 max-w-3xl text-center text-white/70 text-base md:text-lg">
+            Leveraging modern technologies and industry best practices to
+            deliver scalable software solutions, cloud platforms, web
+            applications, and game development services.
+          </p>
+
+          <div className="mt-6 h-1 w-24 rounded-full bg-[#FF6A00]" />
+        </div>
+
+        {/* Skills Grid */}
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {skills.map((skillGroup, index) => (
+            <SkillItem
+              key={`skill-group-${index}`}
+              data={skillGroup}
+            />
+          ))}
+        </div>
       </ConstraintedBox>
     </ResponsiveBox>
   );

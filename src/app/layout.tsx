@@ -28,14 +28,14 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "NixLab Technologies - an Indian Software Development Company",
+  title: "Semraa Technologies - an Indian Software Development Company",
   description:
-    "NixLab Technologies is a software development company based in the India.",
+    "Semraa Technologies is a software development company based in India.",
   keywords: [
-    "NixLab",
-    "nixlab",
-    "nixlab technologies",
-    "nixlab tech",
+    "Semraa",
+    "semraa",
+    "semraa technologies",
+    "semraa tech",
     "web development",
     "android app development",
     "iOS app development",

@@ -3,43 +3,37 @@ import Column from "@/components/core/Column";
 
 const FooterContactInfo = () => {
   return (
-    <Column classNames="w-full justify-between gap-8 mt-8 md:flex-row md:items-center">
-      <Column classNames="md:items-center">
-        <p className="text-sm/6 font-semibold text-center text-[var(--secondaryColor)]">
-          Address
-        </p>
+    <Column classNames="gap-5">
+      <p className="text-sm font-bold uppercase tracking-[0.3em] text-[#FF6A00]">
+        Contact
+      </p>
 
-        <p className="text-base/6 mt-2">Gaya, Bihar, India, 804403</p>
-      </Column>
-
-      <Column classNames="md:items-center">
-        <p className="text-sm/6 font-semibold text-center text-[var(--secondaryColor)]">
-          Contact Us
-        </p>
-
-        <p className="text-base/6 mt-2">
-          <Link
-            href="mailto:nixlab.in@gmail.com"
-            target="_blank"
-            className="text-[var(--textColor)] hover:underline"
-          >
-            nixlab.in@gmail.com
-          </Link>
-        </p>
-      </Column>
-
-      <Column classNames="md:items-center">
-        <p className="text-sm/6 font-semibold text-center text-[var(--secondaryColor)]">
-          Working Hours
-        </p>
-
-        <Column classNames="md:items-center mt-2">
-          <p className="text-base/6 text-center">
-            Monday-Friday: 10:00 AM - 7:00PM
+      <div className="grid gap-3">
+        <div className="footer-contact-card rounded-2xl border border-[#FF6A00]/15 bg-[#050D1B]/70 p-4">
+          <p className="font-bold text-white">Address</p>
+          <p className="mt-1 text-[#DCE8F8]">
+            Alangulam, Tirunelveli - 627851
           </p>
-          <p className="text-base/6 text-center">Saturday & Sunday: Off</p>
-        </Column>
-      </Column>
+        </div>
+
+        <div className="footer-contact-card rounded-2xl border border-[#FF6A00]/15 bg-[#050D1B]/70 p-4">
+          <p className="font-bold text-white">Email</p>
+          <Link
+            href="mailto:Nagaraja@semraa.com"
+            className="mt-1 block text-[#DCE8F8] hover:text-[#FF6A00]"
+          >
+            Nagaraja@semraa.com
+          </Link>
+        </div>
+
+        <div className="footer-contact-card rounded-2xl border border-[#FF6A00]/15 bg-[#050D1B]/70 p-4">
+          <p className="font-bold text-white">Working Hours</p>
+          <p className="mt-1 text-[#DCE8F8]">
+            Monday - Friday: 10:00 AM - 7:00 PM
+          </p>
+          <p className="text-[#DCE8F8]">Saturday & Sunday: Off</p>
+        </div>
+      </div>
     </Column>
   );
 };

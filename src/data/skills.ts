@@ -2,168 +2,90 @@ import { ISkillListItem, SkillLevel } from "@/types";
 
 const skills: ISkillListItem[] = [
   {
-    title: "Programming Languages",
+    title: "Software Development",
     items: [
-      {
-        title: "JavaScript",
-        level: SkillLevel.Expert,
-        icon: "/skills/javascript.svg",
-      },
-      {
-        title: "TypeScript",
-        level: SkillLevel.Intermediate,
-        icon: "/skills/typescript.svg",
-      },
-      {
-        title: "Dart",
-        level: SkillLevel.Expert,
-        icon: "/skills/dart.svg",
-      },
+      { title: "Python", level: SkillLevel.Expert },
+      { title: "C#", level: SkillLevel.Expert },
+      { title: ".NET", level: SkillLevel.Intermediate },
+      { title: "JavaScript", level: SkillLevel.Expert },
+      { title: "TypeScript", level: SkillLevel.Intermediate },
+      { title: "PHP", level: SkillLevel.Intermediate },
     ],
   },
+
   {
-    title: "Frontend Development",
+    title: "Frontend Technologies",
     items: [
-      {
-        title: "Next.js",
-        level: SkillLevel.Expert,
-        icon: "/skills/nextjs.svg",
-      },
-      {
-        title: "React.js",
-        level: SkillLevel.Expert,
-        icon: "/skills/react.svg",
-      },
-      {
-        title: "Flutter",
-        level: SkillLevel.Expert,
-        icon: "/skills/flutter.svg",
-      },
-      {
-        title: "HTML",
-        level: SkillLevel.Expert,
-        icon: "/skills/html.svg",
-      },
-      {
-        title: "CSS",
-        level: SkillLevel.Intermediate,
-        icon: "/skills/css.svg",
-      },
-      {
-        title: "SASS",
-        level: SkillLevel.Intermediate,
-        icon: "/skills/sass.svg",
-      },
+      { title: "Angular", level: SkillLevel.Intermediate },
+      { title: "React", level: SkillLevel.Expert },
+      { title: "Next.js", level: SkillLevel.Expert },
+      { title: "HTML", level: SkillLevel.Expert },
+      { title: "CSS", level: SkillLevel.Expert },
     ],
   },
+
   {
-    title: "Backend Development",
+    title: "Backend Technologies",
     items: [
-      {
-        title: "Node.js",
-        level: SkillLevel.Expert,
-        icon: "/skills/nodejs.svg",
-      },
-      {
-        title: "Express",
-        level: SkillLevel.Expert,
-        icon: "/skills/express.svg",
-      },
-      {
-        title: "Nest.js",
-        level: SkillLevel.Begginer,
-        icon: "/skills/nestjs.svg",
-      },
+      { title: "Node.js", level: SkillLevel.Expert },
+      { title: "Express", level: SkillLevel.Expert },
+      { title: "REST APIs", level: SkillLevel.Expert },
     ],
   },
+
   {
-    title: "Database Management",
+    title: "Cloud Technologies",
     items: [
-      {
-        title: "MongoDB",
-        level: SkillLevel.Intermediate,
-        icon: "/skills/mongodb.svg",
-      },
-      {
-        title: "PostgreSQL",
-        level: SkillLevel.Intermediate,
-        icon: "/skills/postgresql.svg",
-      },
-      {
-        title: "MySQL",
-        level: SkillLevel.Begginer,
-        icon: "/skills/mysql.svg",
-      },
+      { title: "Azure", level: SkillLevel.Intermediate },
+      { title: "AWS", level: SkillLevel.Intermediate },
+      { title: "GCP", level: SkillLevel.Intermediate },
+      { title: "Firebase", level: SkillLevel.Expert },
     ],
   },
+
   {
-    title: "Version Control Systems",
+    title: "Database Technologies",
     items: [
-      {
-        title: "Git",
-        level: SkillLevel.Expert,
-        icon: "/skills/git.svg",
-      },
-      {
-        title: "GitHub",
-        level: SkillLevel.Expert,
-        icon: "/skills/github.svg",
-      },
+      { title: "MongoDB", level: SkillLevel.Expert },
+      { title: "MySQL", level: SkillLevel.Expert },
     ],
   },
+
   {
-    title: "Miscellaneous",
+    title: "Game Development",
     items: [
-      // {
-      //   title: "WebSockets",
-      //   level: SkillLevel.Intermediate,
-      //   icon: "/images/logical-thinking.png",
-      // },
-      // {
-      //   title: "GetX",
-      //   level: SkillLevel.Expert,
-      //   icon: "/images/logical-thinking.png",
-      // },
-      {
-        title: "Redux",
-        level: SkillLevel.Expert,
-        icon: "/skills/redux.svg",
-      },
-      {
-        title: "AWS",
-        level: SkillLevel.Intermediate,
-        icon: "/skills/aws.svg",
-      },
-      {
-        title: "Firebase",
-        level: SkillLevel.Intermediate,
-        icon: "/skills/firebase.svg",
-      },
-      {
-        title: "Ubuntu",
-        level: SkillLevel.Intermediate,
-        icon: "/skills/ubuntu.png",
-      },
+      { title: "Unity", level: SkillLevel.Expert },
+      { title: "Android Games", level: SkillLevel.Expert },
+      { title: "PC Games", level: SkillLevel.Expert },
+      { title: "WebGL Games", level: SkillLevel.Intermediate },
     ],
   },
+
   {
-    title: "Nontechnical Skills",
+    title: "DevOps & Tools",
     items: [
-      {
-        title: "Problem Solving",
-        level: SkillLevel.Expert,
-        icon: "/images/logical-thinking.png",
-      },
-      {
-        title: "Collaboration",
-        level: SkillLevel.Expert,
-        icon: "/images/collaboration.png",
-      },
-      {
-        title: "Analytical Skills",
-        level: SkillLevel.Expert,
-        icon: "/images/analytical-skills.png",
-      },
+      { title: "Git", level: SkillLevel.Expert },
+      { title: "GitHub", level: SkillLevel.Expert },
+      { title: "VS Code", level: SkillLevel.Expert },
+      { title: "Ubuntu", level: SkillLevel.Intermediate },
+    ],
+  },
+
+  {
+    title: "Digital Marketing",
+    items: [
+      { title: "SEO", level: SkillLevel.Intermediate },
+      { title: "Online Marketing", level: SkillLevel.Intermediate },
+    ],
+  },
+
+  {
+    title: "Creative Media",
+    items: [
+      { title: "Video Editing", level: SkillLevel.Expert },
+      { title: "2D Animation", level: SkillLevel.Intermediate },
+      { title: "3D Animation", level: SkillLevel.Intermediate },
+      { title: "Ad Film Making", level: SkillLevel.Intermediate },
     ],
   },
 ];
