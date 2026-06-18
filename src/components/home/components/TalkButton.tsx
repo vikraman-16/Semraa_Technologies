@@ -1,15 +1,25 @@
-import Link from "next/link";
-import Strings from "@/constants/strings";
+"use client";
 
 const TalkButton = () => {
+  const handleClick = () => {
+    const section = document.getElementById("contact-form");
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
-    <Link
+    <button
+      type="button"
+      onClick={handleClick}
       className="app__filled_btn min-w-[12rem]"
-      href={Strings.telegramLink}
-      target="_blank"
     >
       Get in Touch
-    </Link>
+    </button>
   );
 };
 

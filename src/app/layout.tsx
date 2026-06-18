@@ -31,6 +31,7 @@ export const metadata: Metadata = {
   title: "Semraa Technologies - an Indian Software Development Company",
   description:
     "Semraa Technologies is a software development company based in India.",
+
   keywords: [
     "Semraa",
     "semraa",
@@ -38,8 +39,8 @@ export const metadata: Metadata = {
     "semraa tech",
     "web development",
     "android app development",
-    "iOS app development",
   ],
+
   robots: {
     index: true,
     follow: true,
@@ -52,34 +53,21 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+
   icons: {
-    icon: [
-      {
-        url: "/favicon.ico",
-        rel: "icon",
-        sizes: "any",
-        type: "image/svg+xml",
-      },
-      {
-        url: "/favicon.ico",
-        rel: "icon",
-        sizes: "any",
-        type: "image/svg+xml",
-        media: "(prefers-color-scheme: dark)",
-      },
-    ],
-    shortcut: ["/icon.png"],
-    apple: [
-      { url: "/icon.png", type: "image/png" },
-      { url: "/apple-icon.png", sizes: "144x144", type: "image/png" },
-    ],
+    icon: "/semraa-favicon.ico?v=2",
+    shortcut: "/semraa-favicon.ico?v=2",
+    apple: "/semraa-favicon.ico?v=2",
   },
+
   verification: {
     google: "j7ODdQNwjVQNYmNEX_5boI9PagNu3Uoiu2EL-yVpBI0",
   },
 };
 
-const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
+const RootLayout = ({
+  children,
+}: Readonly<{ children: ReactNode }>) => {
   return (
     <html lang="en" className={poppins.className}>
       <head>
@@ -90,19 +78,22 @@ const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
 
         <Script id="google-analytics" strategy="afterInteractive">
           {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${LocalConfig.values.NEXT_PUBLIC_GTAG_ID}', {
-            page_path: window.location.pathname,
-          });
-        `}
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '${LocalConfig.values.NEXT_PUBLIC_GTAG_ID}', {
+              page_path: window.location.pathname,
+            });
+          `}
         </Script>
       </head>
 
       <body
         className={
-          process.env.NODE_ENV === "development" ? "debug-screens" : ""
+          process.env.NODE_ENV === "development"
+            ? "debug-screens"
+            : ""
         }
       >
         <NavBar />

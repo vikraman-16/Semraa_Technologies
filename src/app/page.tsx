@@ -19,14 +19,14 @@ const Home = () => {
         <HomeSection2 id="services" />
         <GlowDivider />
 
-        <HomeSection3 id="projects" />
-        <GlowDivider />
+        {/* <HomeSection3 id="projects" />
+        <GlowDivider /> */}
 
         {/* <HomeSection4 id="about" />
         <GlowDivider /> */}
 
-        <HomeSection5 id="contact" />
-        <GlowDivider />
+        {/* <HomeSection5 id="contact" />
+        <GlowDivider /> */}
 
         <HomeSection6 id="contact-form" />
       </Suspense>
