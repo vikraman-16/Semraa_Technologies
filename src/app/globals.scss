@@ -1376,6 +1376,18 @@ h6 {
   border-color: #ff6a00;
   box-shadow: 0 0 18px rgba(255, 106, 0, 0.18);
 }
+.contact-input.is-placeholder {
+  color: #7a8aa0;
+}
+
+.contact-input.is-selected {
+  color: #ffffff;
+}
+
+.contact-input option {
+  color: #ffffff;
+  background: #050d1b;
+}
 
 @keyframes contactFadeUp {
   from {
@@ -1401,4 +1413,30 @@ h6 {
 select option {
   color: #ffffff;
   background: #0b1628;
+}
+html,
+body {
+  min-height: 100%;
+  background: #081120;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+main {
+  background: #081120;
+  min-height: 100vh;
+}
+.service-select.placeholder {
+  color: #7a8aa0 !important;
+}
+
+.service-select.selected {
+  color: #ffffff !important;
+}
+
+.service-select option {
+  color: #ffffff !important;
+  background: #050d1b !important;
 }

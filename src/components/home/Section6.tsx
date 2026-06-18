@@ -92,37 +92,35 @@ const HomeSection6 = ({ id }: { id?: string }) => {
               className="contact-input h-14 text-base md:h-16"
             />
 
-            <select
-              name="service"
-              required
-              value={selectedService}
-              onChange={(e) => setSelectedService(e.target.value)}
-              className={`contact-input h-14 text-base md:h-16 ${
-                selectedService ? "text-white" : "text-[#8A93A5]"
-              }`}
-            >
-              <option value="" disabled>
-                Select Service *
-              </option>
-              <option value="Website Development">Website Development</option>
-              <option value="Mobile App Development">
-                Mobile App Development
-              </option>
-              <option value="Game Development">Game Development</option>
-              <option value="Multiplayer Game Development">
-                Multiplayer Game Development
-              </option>
-              <option value="Backend Development">Backend Development</option>
-              <option value="UI / UX Design">UI / UX Design</option>
-              <option value="Cloud & DevOps">Cloud & DevOps</option>
-              <option value="AI & Automation">AI & Automation</option>
-              <option value="E-Commerce Solutions">E-Commerce Solutions</option>
-              <option value="Custom Software Development">
-                Custom Software Development
-              </option>
-              <option value="Software Consulting">Software Consulting</option>
-            </select>
-          </div>
+          <select
+            name="service"
+            required
+            value={selectedService}
+            onChange={(e) => setSelectedService(e.target.value)}
+            className={`contact-input service-select h-14 text-base md:h-16 ${
+              selectedService ? "selected" : "placeholder"
+            }`}
+          >
+            <option value="" disabled>
+              Select Service *
+            </option>
+            <option value="Website Development">Website Development</option>
+            <option value="Mobile App Development">Mobile App Development</option>
+            <option value="Game Development">Game Development</option>
+            <option value="Multiplayer Game Development">
+              Multiplayer Game Development
+            </option>
+            <option value="Backend Development">Backend Development</option>
+            <option value="UI / UX Design">UI / UX Design</option>
+            <option value="Cloud & DevOps">Cloud & DevOps</option>
+            <option value="AI & Automation">AI & Automation</option>
+            <option value="E-Commerce Solutions">E-Commerce Solutions</option>
+            <option value="Custom Software Development">
+              Custom Software Development
+            </option>
+            <option value="Software Consulting">Software Consulting</option>
+          </select> 
+      </div>
 
           <textarea
             name="message"

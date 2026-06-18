@@ -97,7 +97,7 @@ const RootLayout = ({
         }
       >
         <NavBar />
-        <main>{children}</main>
+        <main className="min-h-screen bg-[#081120]">{children}</main>
         <Footer />
         <ScrollToTop />
       </body>
