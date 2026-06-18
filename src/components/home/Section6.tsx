@@ -32,33 +32,33 @@ const HomeSection6 = ({ id }: { id?: string }) => {
     } catch (error) {
       console.error(error);
       setStatus("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   return (
     <ResponsiveBox
       id={id}
-      classNames="relative overflow-hidden bg-[#081120] min-h-[calc(100vh-5rem)] items-center justify-center"
+      classNames="relative overflow-hidden bg-[#081120] py-14 md:py-20"
     >
-      <div className="absolute right-0 top-0 h-[350px] w-[350px] rounded-full bg-[#FF6A00]/12 blur-[70px]" />
-      <div className="absolute bottom-0 left-0 h-[300px] w-[300px] rounded-full bg-[#FF6A00]/6 blur-[70px]" />
+      <div className="absolute right-0 top-0 h-[220px] w-[220px] rounded-full bg-[#FF6A00]/12 blur-[70px] md:h-[350px] md:w-[350px]" />
+      <div className="absolute bottom-0 left-0 h-[220px] w-[220px] rounded-full bg-[#FF6A00]/6 blur-[70px] md:h-[300px] md:w-[300px]" />
 
-      <ConstraintedBox classNames="relative z-10 px-4 py-16 lg:py-20">
+      <ConstraintedBox classNames="relative z-10 px-4">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.35em] text-[#FF6A00]">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-[#FF6A00] md:text-sm md:tracking-[0.35em]">
             Contact
           </p>
 
-          <h2 className="text-4xl font-extrabold text-white md:text-5xl">
+          <h2 className="text-3xl font-extrabold text-white md:text-5xl">
             Let&apos;s Build Something{" "}
             <span className="bg-gradient-to-r from-[#FF6A00] to-[#FFB06B] bg-clip-text text-transparent">
               Powerful
             </span>
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-[#DCE8F8]">
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#DCE8F8] md:text-base">
             Tell us about your project. We&apos;ll help turn your idea into a
             successful digital product.
           </p>
@@ -66,17 +66,52 @@ const HomeSection6 = ({ id }: { id?: string }) => {
 
         <form
           onSubmit={handleSubmit}
-          className="contact-form mx-auto mt-12 max-w-4xl rounded-[2rem] border border-[#FF6A00]/25 bg-[#0B1628] p-6 md:p-8"
+          className="
+            contact-form
+            mx-auto mt-8 max-w-4xl
+            rounded-[1.5rem]
+            border border-[#FF6A00]/25
+            bg-[#0B1628]
+            p-4
+            md:mt-12 md:rounded-[2rem] md:p-8
+          "
         >
-          <div className="grid gap-5 md:grid-cols-2">
-            <input name="name" required placeholder="Full Name *" className="contact-input" />
-            <input name="email" type="email" required placeholder="Email Address *" className="contact-input" />
-            <input name="phone" placeholder="Phone Number" className="contact-input" />
+          <div className="grid gap-4 md:grid-cols-2 md:gap-5">
+            <input
+              name="name"
+              required
+              placeholder="Full Name *"
+              className="contact-input h-14 text-base md:h-16"
+            />
 
-            <select name="service" required defaultValue="" className="contact-input">
-              <option value="" disabled>Select Service *</option>
+            <input
+              name="email"
+              type="email"
+              required
+              placeholder="Email Address *"
+              className="contact-input h-14 text-base md:h-16"
+            />
+
+            <input
+              name="phone"
+              placeholder="Phone Number"
+              className="contact-input h-14 text-base md:h-16"
+            />
+
+            <select
+              name="service"
+              required
+              defaultValue=""
+              className="contact-input h-14 text-base md:h-16"
+            >
+              <option value="" disabled>
+                Select Service *
+              </option>
               <option value="Website Development">Website Development</option>
-              <option value="Mobile App Development">Mobile App Development</option>
+              <option value="Mobile App Development">
+                Mobile App Development
+              </option>
+              <option value="Game Development">Game Development</option>
               <option value="Backend Development">Backend Development</option>
               <option value="UI / UX Design">UI / UX Design</option>
               <option value="Cloud & DevOps">Cloud & DevOps</option>
@@ -87,15 +122,23 @@ const HomeSection6 = ({ id }: { id?: string }) => {
           <textarea
             name="message"
             required
-            rows={6}
+            rows={5}
             placeholder="Tell us about your project *"
-            className="contact-input mt-5 w-full resize-none"
+            className="contact-input mt-4 w-full resize-none text-base md:mt-5 md:rows-6"
           />
 
           <button
             type="submit"
             disabled={loading}
-            className="mt-5 rounded-xl bg-[#FF6A00] px-8 py-4 font-bold text-white transition-all duration-300 hover:bg-[#FF8124] hover:shadow-[0_0_25px_rgba(255,106,0,0.4)] disabled:opacity-60"
+            className="
+              mt-5 w-full rounded-xl bg-[#FF6A00]
+              px-8 py-4 font-bold text-white
+              transition-all duration-300
+              hover:bg-[#FF8124]
+              hover:shadow-[0_0_25px_rgba(255,106,0,0.4)]
+              disabled:opacity-60
+              md:w-auto
+            "
           >
             {loading ? "Sending..." : "Send Message"}
           </button>

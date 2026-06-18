@@ -1,41 +1,44 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const useScrolled = (offset?: number) => {
-  const [scrolled, setScrolled] = useState<boolean>(false);
+const useScrolled = (offset: number = 40) => {
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    let tempOffset = 40;
-    if (
-      !offset ||
-      offset < 0 ||
-      offset > window.innerHeight ||
-      typeof offset !== "number" ||
-      isNaN(offset) ||
-      !isFinite(offset) ||
-      offset === Infinity ||
-      offset === -Infinity ||
-      offset === 0 ||
-      offset === null ||
-      offset === undefined
-    ) {
-      tempOffset = 40;
-    }
+    const validOffset =
+      typeof offset === "number" && isFinite(offset) && offset > 0
+        ? offset
+        : 40;
+
+    let ticking = false;
 
     const handleScroll = () => {
-      if (window.scrollY > tempOffset) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      if (ticking) return;
+
+      ticking = true;
+
+      window.requestAnimationFrame(() => {
+        const nextValue = window.scrollY > validOffset;
+
+        setScrolled((prev) => {
+          if (prev === nextValue) return prev;
+          return nextValue;
+        });
+
+        ticking = false;
+      });
     };
 
-    if (document.readyState === "complete") handleScroll();
+    handleScroll();
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, [offset]);
 
   return scrolled;

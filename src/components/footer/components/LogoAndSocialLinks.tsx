@@ -23,7 +23,7 @@ const FooterLogoAndSocialLinks = () => {
       </p>
 
       <Row classNames="gap-3">
-        {socialLinks.slice(0, 5).map((link, index) => (
+        {/* {socialLinks.slice(0, 5).map((link, index) => (
           <Link
             key={`social-link-${index}`}
             href={link.url}
@@ -33,7 +33,7 @@ const FooterLogoAndSocialLinks = () => {
           >
             <FontAwesomeIcon icon={link.icon} />
           </Link>
-        ))}
+        ))} */}
       </Row>
     </Column>
   );

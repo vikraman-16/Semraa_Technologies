@@ -1388,3 +1388,13 @@ h6 {
     transform: translateY(0);
   }
 }
+/* Disable text selection on display content */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}

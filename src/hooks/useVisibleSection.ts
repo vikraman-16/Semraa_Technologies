@@ -1,61 +1,56 @@
-import { useEffect, useState, useCallback } from "react";
-import { throttle } from "lodash";
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
 import navMenus from "@/data/navMenus";
 
-function useVisibleSection(sections = navMenus) {
-  const [visibleSectionId, setVisibleSectionId] = useState<string>(
-    sections[0].id
+type SectionItem = {
+  id: string;
+};
+
+function useVisibleSection(sections: SectionItem[] = navMenus) {
+  const sectionIds = useMemo(
+    () => sections.map((section) => section.id).filter(Boolean),
+    [sections]
   );
 
-  const isSectionVisible = (elementId: string) => {
-    const section = document.getElementById(elementId);
-
-    if (!section) return false;
-
-    const sectionPosition = section.getBoundingClientRect();
-    const vHeight = window.innerHeight || document.documentElement.clientHeight;
-
-    // Calculate the threshold for more than 50% visibility
-    var threshold = vHeight * 0.5;
-
-    // Check if more than 50% of the element is visible from the start or end in the viewport
-    return (
-      (sectionPosition.top <= threshold &&
-        sectionPosition.bottom >= threshold) || // More than 50% from the start
-      (sectionPosition.bottom >= vHeight - threshold &&
-        sectionPosition.top <= vHeight - threshold) // More than 50% from the end
-    );
-  };
-
-  const checkVisibility = useCallback(() => {
-    if (!sections || sections.length < 1) return;
-
-    sections.forEach(({ id }) => {
-      const isVisible = isSectionVisible(id);
-
-      if (isVisible) {
-        setVisibleSectionId(id);
-      }
-    });
-  }, [sections]);
+  const [visibleSectionId, setVisibleSectionId] = useState(
+    sectionIds[0] || ""
+  );
 
   useEffect(() => {
-    const handler = throttle(checkVisibility, 300);
+    if (!sectionIds.length) return;
 
-    if (document.readyState === "complete") handler();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 
-    window.addEventListener("DOMContentLoaded", handler);
-    window.addEventListener("load", handler);
-    window.addEventListener("scroll", handler);
-    window.addEventListener("resize", handler);
+        if (!visibleEntries.length) return;
+
+        const id = visibleEntries[0].target.id;
+
+        setVisibleSectionId((prev) => {
+          if (prev === id) return prev;
+          return id;
+        });
+      },
+      {
+        root: null,
+        threshold: [0.25, 0.5, 0.75],
+        rootMargin: "-20% 0px -55% 0px",
+      }
+    );
+
+    sectionIds.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
 
     return () => {
-      window.removeEventListener("DOMContentLoaded", handler);
-      window.removeEventListener("load", handler);
-      window.removeEventListener("scroll", handler);
-      window.removeEventListener("resize", handler);
+      observer.disconnect();
     };
-  }, [checkVisibility]);
+  }, [sectionIds]);
 
   return visibleSectionId;
 }
