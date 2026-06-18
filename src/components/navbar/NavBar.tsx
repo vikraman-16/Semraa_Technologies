@@ -99,11 +99,12 @@ const NavBar = () => {
               select-none
               md:w-[400px]
               lg:w-[450px]
-              xl:w-[450 px]
+              xl:w-[450px]
             "
           />
         </Link>
 
+        {/*
         <div className="ml-auto flex justify-end lg:relative">
           <button
             type="button"
@@ -187,9 +188,11 @@ const NavBar = () => {
             </div>
           </div>
         </div>
+        */}
       </div>
     </div>
   );
 };
 
 export default NavBar;
+
