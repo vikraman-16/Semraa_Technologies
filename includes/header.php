@@ -7,11 +7,11 @@
 <link rel="icon" type="image/png" sizes="16x16" href="<?= e(url('assets/img/favicon-16.png')) ?>">
 <link rel="apple-touch-icon" sizes="180x180" href="<?= e(url('assets/img/apple-touch-icon.png')) ?>">
 <link rel="manifest" href="<?= e(url('site.webmanifest')) ?>">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap">
-<link rel="stylesheet" href="<?= e(url('assets/css/style.css')) ?>">
-<link rel="stylesheet" href="<?= e(url('assets/css/company.css')) ?>">
-<script src="<?= e(url('assets/js/main.min.js')) ?>" defer></script>
+<link rel="preload" href="<?= e(url('assets/fonts/inter-latin.woff2')) ?>" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="<?= e(url('assets/fonts/poppins-700-latin.woff2')) ?>" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="<?= e(asset_url('assets/css/style.css')) ?>">
+<link rel="stylesheet" href="<?= e(asset_url('assets/css/company.css')) ?>">
+<script src="<?= e(asset_url('assets/js/main.min.js')) ?>" defer></script>
 </head>
 <body class="page-<?= e(explode(':', (string) $key)[0]) ?>"<?= config('preview_mode') ? ' data-preview="true"' : '' ?>>
 <?php if (config('preview_mode')): ?><div class="preview-notice" role="note">Website preview · Enquiries and bookings are not active yet.</div><?php endif; ?>
