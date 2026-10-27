@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: semraa-preview
+    runtime: docker
+    plan: free
+    branch: main
+    healthCheckPath: /about
+    envVars:
+      - key: APP_ENV
+        value: local
+      - key: APP_PREVIEW
+        value: "1"
+

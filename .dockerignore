@@ -1,0 +1,16 @@
+.git
+.runtime
+.env
+.env.*
+dist
+tests
+logs/*
+assets/img/case-studies/*
+*.png
+!assets/**
+*.sqlite
+*.sqlite3
+*.db
+*.pem
+*.key
+

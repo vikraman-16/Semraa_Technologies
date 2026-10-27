@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 // Production defaults target the confirmed domain. Local previews set APP_URL explicitly.
 // Set secrets in hosting configuration; never commit real credentials.
-$baseUrl = rtrim(getenv('APP_URL') ?: 'https://semraa.in', '/');
+$baseUrl = rtrim(getenv('APP_URL') ?: (getenv('RENDER_EXTERNAL_URL') ?: 'https://semraa.in'), '/');
 $environment = getenv('APP_ENV') ?: ($baseUrl === 'https://semraa.in' ? 'production' : 'local');
 return [
     'preview_mode' => getenv('APP_PREVIEW') === '1',
