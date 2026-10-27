@@ -1,0 +1,4 @@
+# Apache routes this URL to robots.php using the configured APP_URL.
+# This safe fallback prevents indexing if rewrites are not enabled.
+User-agent: *
+Disallow: /

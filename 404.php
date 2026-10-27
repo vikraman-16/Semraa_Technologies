@@ -1,0 +1,3 @@
+<?php require_once __DIR__ . '/includes/functions.php'; http_response_code(404); page_start('404'); ?>
+<section class="section"><div class="container narrow empty-state"><p class="eyebrow">A SMALL DETOUR</p><h1>404</h1><h2>This page has taken a different path.</h2><p class="lead">The link may have changed, or the page may no longer exist. Let’s get you somewhere useful.</p><div class="actions"><a class="button" href="<?= e(url()) ?>">Back to home <?= icon('arrow') ?></a><a class="button button-outline" href="<?= e(url('services')) ?>">Explore services</a><a class="text-link" href="<?= e(url('contact')) ?>">Contact us</a></div></div></section>
+<?php page_end(); ?>

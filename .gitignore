@@ -1,35 +1,24 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
+# Local runtimes, credentials and test data
+.runtime/
+.env
+.env.*
+!.env.example
 *.pem
+*.key
+*.sqlite
+*.sqlite3
+*.db
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Runtime files and user uploads
+logs/*
+!logs/.gitkeep
+assets/img/case-studies/*
+!assets/img/case-studies/.gitkeep
+vendor/
 
-# local env files
-.env*.local
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# Local review artifacts and deployment packages
+/*-preview.png
+/services-ui-refinement.png
+/dist/
+.DS_Store
+Thumbs.db

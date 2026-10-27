@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';
+const base='http://127.0.0.1:8091';let cookie='';
+async function request(path,body){let r=await fetch(base+path,{redirect:'manual',headers:cookie?{Cookie:cookie}:{},...(body?{method:'POST',body}:{})});let c=r.headers.get('set-cookie');if(c)cookie=c.split(';')[0];return {status:r.status,html:await r.text(),location:r.headers.get('location')};}
+const token=h=>h.match(/name="csrf" value="([a-f0-9]+)"/)[1];
+let p=await request('/admin/login.php');await request('/admin/login.php',new URLSearchParams({csrf:token(p.html),website_url:'',password:'Local-feature-test-only'}));
+p=await request('/admin/cases.php?id=1');let form=new FormData();for(const [key,value] of Object.entries({csrf:token(p.html),id:'1',slug:'fixture-upload-case',title:'Local upload fixture',summary:'Synthetic local test only',challenge:'Test challenge',solution:'Test solution',outcome:'Test outcome',image_alt:'Synthetic test texture',status:'published',evidence_approved:'1'}))form.set(key,value);
+const bytes=await readFile('.runtime/test-upload.png');assert(bytes.length>32768);form.set('case_image',new Blob([bytes],{type:'image/png'}),'fixture.png');let r=await request('/admin/cases.php',form);assert.equal(r.status,303,'Upload over the normal form body limit succeeds for authenticated editor');
+p=await request('/case-studies/fixture-upload-case');assert.equal(p.status,200);let image=p.html.match(/property="og:image" content="([^"]+)"/)[1];assert(image.includes('/assets/img/case-studies/')&&image.endsWith('.jpg'));let asset=await fetch(image);assert.equal(asset.status,200);assert(asset.headers.get('content-type').includes('image/jpeg'));
+assert(p.html.includes('Synthetic test texture'));assert(p.html.includes('property="og:image:width" content="160"'));
+p=await request('/admin/cases.php?id=1');await request('/admin/cases.php',new URLSearchParams({csrf:token(p.html),id:'1',slug:'fixture-upload-case',title:'Local upload fixture',status:'draft',image_alt:'Synthetic test texture'}));assert.equal((await request('/case-studies/fixture-upload-case')).status,404);
+console.log('PASS: 8 screenshot upload, metadata, MIME and unpublishing checks using isolated fixture data.');

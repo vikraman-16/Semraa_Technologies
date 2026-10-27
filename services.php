@@ -1,0 +1,4 @@
+<?php require_once __DIR__ . '/includes/functions.php'; page_start('services','services',[['Services','services']]); page_hero('OUR SERVICES','IT and software services in Tirunelveli.','Six connected disciplines. One practical goal: technology that fits your business and helps your team move forward.'); ?>
+<section class="section"><div class="container grid-3"><?php service_cards(2); ?></div></section>
+<section class="section surface"><div class="container split"><div><p class="eyebrow">NOT SURE WHERE TO START?</p><h2>Start with the problem.<br>We’ll explore the possibilities.</h2></div><div><p class="lead">You don’t need a finished technical specification. Tell us what is slowing you down, what you want to improve or what you are ready to build.</p><a class="button" href="<?= e(project_url('it-consulting')) ?>">Discuss Your Project <?= icon('arrow') ?></a></div></div></section>
+<?php page_end(); ?>

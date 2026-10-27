@@ -1,0 +1,8 @@
+<?php
+require_once __DIR__ . '/includes/functions.php';
+$summary = $_SESSION['booking_summary'] ?? null;
+if (!$summary || $summary['expires'] < time()) { unset($_SESSION['booking_summary']); redirect('book-demo'); }
+page_start('booking-success','',[['Book a Demo','book-demo'],['Request received','booking-success']]);
+?>
+<section class="section"><div class="container narrow"><div class="success-mark"><?= icon('check') ?></div><p class="eyebrow">REQUEST RECEIVED</p><h1>Thanks, <?= e($summary['name']) ?>.</h1><p class="lead">Your request is saved. Our team will follow up to discuss your requirements and confirm a meeting time.</p><div class="form-card" data-conversion="demo" data-conversion-id="<?= e($summary['conversion_id']) ?>"><h2>Your request at a glance</h2><dl class="summary-list"><dt>Reference</dt><dd>DEMO-<?= (int)$summary['id'] ?></dd><dt>Service</dt><dd><?= e($summary['service']) ?></dd><dt>Preferred date</dt><dd><?= e($summary['preferred_date']) ?></dd><dt>Preferred time</dt><dd><?= e($summary['preferred_time']) ?> · <?= e($summary['timezone']) ?></dd><dt>Meeting mode</dt><dd><?= e($summary['mode']) ?></dd><dt>Status</dt><dd>Awaiting scheduling confirmation</dd></dl><p class="note"><?= $summary['email_sent'] ? 'A confirmation email has been sent. Please check your spam folder if it does not arrive.' : 'Your request is safely saved, but we could not send the confirmation email. Please keep your reference number.' ?></p></div><div class="actions"><a class="button" href="<?= e(url()) ?>">Back to home <?= icon('arrow') ?></a><a class="button button-outline" href="<?= e(url('services')) ?>">Explore our services</a></div></div></section>
+<?php page_end(); ?>

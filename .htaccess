@@ -1,0 +1,65 @@
+Options -Indexes -MultiViews
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Canonical production origin; localhost and temporary preview hosts are unaffected.
+# If HTTPS terminates at a reverse proxy, configure this redirect at the trusted proxy.
+RewriteCond %{HTTP_HOST} ^(?:www\.)?semraa\.in(?::[0-9]+)?$ [NC]
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^semraa\.in$ [NC]
+RewriteRule ^ https://semraa.in%{REQUEST_URI} [R=301,L,NE]
+
+# Protect application internals and development tools before any file passthrough.
+RewriteRule ^(?:includes|data|logs|database|vendor|tests|tools)(?:/|$) - [F,L,NC]
+RewriteRule (^|/)\. - [F,L]
+RewriteRule ^(?:README\.md|router\.php|.*\.(?:sql|log|ini|bak))$ - [F,L,NC]
+
+# Example legacy redirect: RewriteRule ^old-services/?$ services [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.php[?\s] [NC]
+RewriteRule ^index\.php$ ./ [R=301,L]
+RewriteCond %{REQUEST_METHOD} =GET
+RewriteCond %{THE_REQUEST} \s/+(.*/)?(?:about|services|products|portfolio|blog|contact|consultation|book-demo|privacy|terms)\.php[?\s] [NC]
+RewriteRule ^(about|services|products|portfolio|blog|contact|consultation|book-demo|privacy|terms)\.php$ $1 [R=301,L]
+
+# Collapse alternate trailing-slash public URLs to their clean canonical path.
+RewriteCond %{REQUEST_METHOD} =GET
+RewriteRule ^((?:about|services|products|portfolio|blog|contact|consultation|book-demo|privacy|terms)|(?:services|locations|blog|case-studies)/[a-z0-9-]+)/$ /$1 [R=301,L,NE]
+
+RewriteRule ^case-studies/([a-z0-9-]+)/?$ case-study.php?slug=$1 [L]
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+RewriteRule ^robots\.txt$ robots.php [L]
+RewriteRule ^services/([a-z0-9-]+)/?$ service.php?slug=$1 [L]
+RewriteRule ^locations/([a-z0-9-]+)/?$ location.php?slug=$1 [L]
+RewriteRule ^blog/([a-z0-9-]+)/?$ post.php?slug=$1 [L]
+RewriteRule ^(about|services|products|portfolio|blog|contact|consultation|book-demo|booking-success|privacy|terms)/?$ $1.php [L]
+RewriteRule ^admin/?$ admin/inbox.php [L]
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteRule ^ 404.php [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "DENY"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+<FilesMatch "\.(css|js|png|jpg|jpeg|webp|svg|ico|woff2)$">
+Header set Cache-Control "public, max-age=604800"
+</FilesMatch>
+</IfModule>
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json application/xml image/svg+xml
+</IfModule>
+<IfModule mod_brotli.c>
+AddOutputFilterByType BROTLI_COMPRESS text/html text/css application/javascript application/json application/xml image/svg+xml
+</IfModule>
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/webp "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType text/css "access plus 1 week"
+ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
