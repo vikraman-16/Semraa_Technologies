@@ -20,7 +20,7 @@ for (const url of urls) {
   check(response.headers.get('content-security-policy')?.includes("frame-ancestors 'none'"),'CSP present');
   check(response.headers.get('x-content-type-options') === 'nosniff','MIME protection');
   for (const match of html.matchAll(/<script type="application\/ld\+json"[^>]*>(.*?)<\/script>/gs)) { JSON.parse(match[1]); checks++; }
-  for (const match of html.matchAll(/(?:src|href)="([^"]*\/assets\/[^"?]+)"/g)) assets.add(match[1]);
+  for (const match of html.matchAll(/(?:src|href)="([^"]*\/assets\/[^"]+)"/g)) assets.add(match[1].replaceAll('&amp;','&'));
 }
 for (const asset of assets) check((await fetch(asset)).status === 200,`Asset exists: ${asset}`);
 check((await fetch(`${base}/missing-page`)).status === 404,'Custom 404 status');

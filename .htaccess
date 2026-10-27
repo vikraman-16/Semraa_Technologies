@@ -1,5 +1,11 @@
 Options -Indexes -MultiViews
 DirectoryIndex index.php
+LimitRequestBody 5242880
+
+# Never serve deployment files, internal notes, backups or database files.
+<FilesMatch "(?i)(\.(?:md|ya?ml|sql|log|ini|bak|sqlite3?|db|pem|key|env)$|^(?:Dockerfile|composer\.(?:json|lock)|package(?:-lock)?\.json)$)">
+Require all denied
+</FilesMatch>
 
 <IfModule mod_rewrite.c>
 RewriteEngine On

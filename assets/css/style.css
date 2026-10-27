@@ -1,3 +1,8 @@
+/* Locally hosted Latin fonts; licenses are in assets/fonts/. */
+@font-face{font-family:Inter;font-style:normal;font-weight:100 900;font-display:swap;src:url('../fonts/inter-latin.woff2') format('woff2')}
+@font-face{font-family:Poppins;font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/poppins-500-latin.woff2') format('woff2')}
+@font-face{font-family:Poppins;font-style:normal;font-weight:600;font-display:swap;src:url('../fonts/poppins-600-latin.woff2') format('woff2')}
+@font-face{font-family:Poppins;font-style:normal;font-weight:700;font-display:swap;src:url('../fonts/poppins-700-latin.woff2') format('woff2')}
 :root{--color-primary:#FF6B1A;--color-primary-light:#FF8A2B;--color-primary-dark:#E8540C;--color-primary-text:#D9480F;--color-dark:#2B3140;--color-darker:#1A1E29;--color-gray:#6E7480;--color-surface:#EEF0F3;--color-bg:#FFFFFF;--color-bg-alt:#F7F8FA;--color-accent-red:#C62F1B;--gradient:linear-gradient(135deg,#FF8A2B 0%,#E8540C 100%);--muted:#555D6B;--line:#E2E5EA;--radius:18px}
 
 *{box-sizing:border-box}

@@ -12,7 +12,7 @@ if (preg_match('~(^|/)(?:\.|includes|data|logs|database|vendor|tests|tools)(?:/|
 if (str_starts_with($path,'assets/') || $path === 'site.webmanifest') {
     $file = __DIR__ . '/' . $path;
     if (is_file($file)) {
-        $types=['css'=>'text/css','js'=>'application/javascript','jpg'=>'image/jpeg','jpeg'=>'image/jpeg','png'=>'image/png','webp'=>'image/webp','svg'=>'image/svg+xml','ico'=>'image/x-icon','webmanifest'=>'application/manifest+json'];
+        $types=['css'=>'text/css','js'=>'application/javascript','jpg'=>'image/jpeg','jpeg'=>'image/jpeg','png'=>'image/png','webp'=>'image/webp','svg'=>'image/svg+xml','ico'=>'image/x-icon','woff2'=>'font/woff2','webmanifest'=>'application/manifest+json'];
         $extension = pathinfo($file,PATHINFO_EXTENSION);
         if (!isset($types[$extension])) { http_response_code(403); exit; }
         header('Content-Type: ' . $types[$extension]); header('X-Content-Type-Options: nosniff'); readfile($file); return true;

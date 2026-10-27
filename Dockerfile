@@ -10,6 +10,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY tools/render-preview.conf /etc/apache2/conf-available/semraa-preview.conf
+COPY tools/php-production.ini /usr/local/etc/php/conf.d/semraa.ini
 RUN a2enconf semraa-preview
 COPY . /var/www/html/
 RUN mkdir -p /var/www/html/logs /var/www/html/assets/img/case-studies \

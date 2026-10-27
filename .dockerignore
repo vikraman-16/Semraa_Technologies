@@ -6,6 +6,7 @@ dist
 tests
 logs/*
 assets/img/case-studies/*
+!assets/img/case-studies/.htaccess
 *.png
 !assets/**
 *.sqlite

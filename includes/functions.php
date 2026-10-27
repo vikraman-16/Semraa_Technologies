@@ -28,6 +28,16 @@ function url(string $path = ''): string
     return config('base_url') . '/' . ltrim($path, '/');
 }
 
+function asset_url(string $path): string
+{
+    // Internal callers supply fixed asset paths; the digest invalidates browser caches after deploys.
+    if (!preg_match('~^assets/(?:css|js)/[a-zA-Z0-9_-]+(?:\.min)?\.(?:css|js)$~D', $path)) {
+        throw new InvalidArgumentException('Invalid asset path.');
+    }
+    $digest = hash_file('sha256', dirname(__DIR__) . '/' . $path);
+    return url($path) . '?v=' . substr($digest, 0, 12);
+}
+
 function redirect(string $path, int $status = 303): never
 {
     header('Location: ' . url($path), true, $status);
@@ -303,7 +313,7 @@ header('Referrer-Policy: strict-origin-when-cross-origin');
 header('Permissions-Policy: camera=(), microphone=(), geolocation=()');
 $analyticsHosts = config('analytics.ga4_id') !== '' ? ' https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com' : '';
 header("Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-" . $GLOBALS['csp_nonce'] . "'" . $analyticsHosts . "; "
-    . "style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; "
+    . "style-src 'self'; font-src 'self'; "
     . "img-src 'self' data:" . $analyticsHosts . "; frame-src https://www.google.com; connect-src 'self'" . $analyticsHosts . "; "
     . "object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'");
 require_once __DIR__ . '/seo-policy.php';

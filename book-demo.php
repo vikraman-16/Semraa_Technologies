@@ -78,5 +78,5 @@ page_hero('LET’S MAKE IT TANGIBLE',$landing['heading'] ?? 'Book a software or 
 <p class="form-note">By sending this request, you ask us to contact you about it. Read our <a href="<?= e(url('privacy')) ?>">privacy policy</a>. A requested slot is not a confirmed appointment.</p>
 </form></div><aside class="booking-side"><span class="icon-box"><?= icon('compass') ?></span><h2>A conversation.<br>A clearer next step.</h2><p>You bring the context. We’ll bring the right questions.</p><ol><li><strong>Tell us what matters.</strong><br>Choose a service and share your requirements.</li><li><strong>We review your request.</strong><br>Our team follows up to confirm the conversation.</li><li><strong>Explore the possibilities.</strong><br>Discuss scope, fit and a practical way forward.</li></ol><p class="note">Prefer a general enquiry? <a class="text-link" href="<?= e(url('contact')) ?>">Get in touch</a></p></aside></div></section>
 <script type="application/json" id="demo-config" nonce="<?= e($GLOBALS['csp_nonce']) ?>"><?= json_for_html(['services'=>$formServices,'blockWeekends'=>config('booking.block_weekends'),'hasErrors'=>(bool)$errors]) ?></script>
-<script src="<?= e(url('assets/js/demo-form.min.js')) ?>" defer></script>
+<script src="<?= e(asset_url('assets/js/demo-form.min.js')) ?>" defer></script>
 <?php page_end(); ?>

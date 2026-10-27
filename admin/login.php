@@ -1,10 +1,17 @@
 <?php
 require_once dirname(__DIR__) . '/includes/forms.php';
+require_once dirname(__DIR__) . '/includes/rate-limit.php';
 header('X-Robots-Tag: noindex, nofollow');
 if (config('admin.password_hash') === '') { http_response_code(503); exit('Admin access is disabled. Configure ADMIN_PASSWORD_HASH to enable it.'); }
 $error = '';
 if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     try {
+        // Do not trust visitor-supplied forwarding headers for the limiter identity.
+        $identity = config('base_url') . ':admin:' . ($_SERVER['REMOTE_ADDR'] ?? 'unknown');
+        if (!consume_rate_limit($identity, 5, 900, config('logs_path') . '/rate-limits')) {
+            http_response_code(429); header('Retry-After: 900');
+            throw new RuntimeException('Login throttled.');
+        }
         guard_submission($_POST);
         $password = input_text($_POST,'password',512);
         if (password_verify($password,config('admin.password_hash'))) {
