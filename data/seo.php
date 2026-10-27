@@ -1,6 +1,6 @@
 <?php
 $pages = [
- 'home'=>['Software Company near Tenkasi | Semraa Technologies','Based in the Tenkasi area, Semraa Technologies serves businesses near Tenkasi and nearby areas with websites, custom software and IT services. Discuss your project.',''],
+ 'home'=>['Software Company near Tenkasi | Semraa Technologies','Based near Tenkasi, Semraa Technologies builds websites and custom business software for Tenkasi, Tirunelveli and nearby areas. Discuss your project.',''],
  'about'=>['About Semraa Technologies | IT Company near Tenkasi','Meet the approach behind Semraa Technologies near Tenkasi. Explore our values, capabilities and practical process for designing and delivering software.','about'],
  'services'=>['IT & Software Services near Tenkasi | Semraa Technologies','Explore web development, custom software, cloud, cybersecurity, UI/UX design and IT consulting near Tenkasi. Discuss your next project with Semraa today.','services'],
  'products'=>['Business Software Products | Semraa Technologies India','Explore Semraa Nexus DB and Work Pulse. Discuss business data, reporting and team workflows in a tailored product demo with Semraa Technologies in India.','products'],
