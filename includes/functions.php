@@ -198,7 +198,8 @@ function icon(string $name): string
 
 function demo_url(string $service = ''): string
 {
-    return url('book-demo') . ($service ? '?service=' . rawurlencode($service) : '');
+    if ($service === 'ui-ux-design') { $service = 'ui-ux'; }
+    return url('book-demo') . (isset(data('demo_pages')[$service]) ? '/' . rawurlencode($service) : '');
 }
 
 function page_start(string $key, string $active = '', array $crumbs = [], array $metadata = []): void

@@ -20,5 +20,5 @@ check_render(!str_contains($html, '127.0.0.1'), 'No development origin in produc
 ob_start(); require __DIR__ . '/../robots.php'; $robots = ob_get_clean();
 check_render(str_contains($robots, "Disallow: /\n") === $preview, 'Correct rendered crawler policy');
 ob_start(); require __DIR__ . '/../sitemap.php'; $xml = ob_get_clean();
-check_render(substr_count($xml, '<loc>https://semraa.in/') === 27, 'Sitemap uses production canonicals');
+check_render(substr_count($xml, '<loc>https://semraa.in/') === 35, 'Sitemap uses production canonicals');
 echo 'PASS: ' . $checks . ' rendered ' . ($preview ? 'preview' : 'production') . " SEO checks.\n";

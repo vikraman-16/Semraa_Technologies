@@ -25,8 +25,9 @@ RewriteRule ^(about|services|products|portfolio|blog|contact|consultation|book-d
 
 # Collapse alternate trailing-slash public URLs to their clean canonical path.
 RewriteCond %{REQUEST_METHOD} =GET
-RewriteRule ^((?:about|services|products|portfolio|blog|contact|consultation|book-demo|privacy|terms)|(?:services|locations|blog|case-studies)/[a-z0-9-]+)/$ /$1 [R=301,L,NE]
+RewriteRule ^((?:about|services|products|portfolio|blog|contact|consultation|book-demo|privacy|terms)|(?:services|locations|blog|case-studies|book-demo)/[a-z0-9-]+)/$ /$1 [R=301,L,NE]
 
+RewriteRule ^book-demo/([a-z0-9-]+)/?$ book-demo.php?demo_page=$1 [L]
 RewriteRule ^case-studies/([a-z0-9-]+)/?$ case-study.php?slug=$1 [L]
 RewriteRule ^sitemap\.xml$ sitemap.php [L]
 RewriteRule ^robots\.txt$ robots.php [L]

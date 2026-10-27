@@ -7,7 +7,7 @@ let checks = 0;
 const check = (value,label) => { assert(value,label); checks++; };
 const sitemap = await (await fetch(`${base}/sitemap.xml`)).text();
 const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(match=>match[1]);
-check(urls.length === 27,'Sitemap contains 27 public pages');
+check(urls.length === 35,'Sitemap contains 35 public pages');
 const assets = new Set(); const titles = new Set();
 for (const url of urls) {
   check(url.startsWith(`${base}/`),'Sitemap uses configured base URL');
@@ -29,7 +29,7 @@ check((await fetch(`${base}/admin/login.php`)).status === 503,'Admin disabled un
 const demo = await fetch(`${base}/book-demo?service=cybersecurity`);
 const cookie = demo.headers.get('set-cookie').split(';')[0], html = await demo.text();
 check(html.includes('name="extra[assessment]"'),'No-JS service fields rendered');
-check(html.includes('<noscript>'),'No-JS service loader present');
+check((await (await fetch(`${base}/book-demo`)).text()).includes('<noscript>'),'No-JS service loader present on hub');
 const token = html.match(/name="csrf" value="([a-f0-9]+)"/)[1];
 let response = await fetch(`${base}/book-demo`,{method:'POST',redirect:'manual',headers:{Cookie:cookie},body:new URLSearchParams({csrf:'wrong',name:'HTTP Test'})});
 check(response.status === 303,'Invalid submission uses PRG');

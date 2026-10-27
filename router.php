@@ -20,6 +20,7 @@ if (str_starts_with($path,'assets/') || $path === 'site.webmanifest') {
 }
 $routes=[''=>'index.php','index.php'=>'index.php','sitemap.xml'=>'sitemap.php','robots.txt'=>'robots.php','admin'=>'admin/inbox.php','admin/login.php'=>'admin/login.php','admin/demos.php'=>'admin/demos.php','admin/inbox.php'=>'admin/inbox.php','admin/calendar.php'=>'admin/calendar.php','admin/cases.php'=>'admin/cases.php'];
 foreach (['about','services','products','portfolio','blog','contact','consultation','book-demo','booking-success','privacy','terms'] as $page) { $routes[$page]=$page . '.php'; $routes[$page . '.php']=$page . '.php'; }
+if (preg_match('~^book-demo/([a-z0-9-]+)$~D',$path,$demoMatch)) { $demoLandingSlug=$demoMatch[1]; require __DIR__.'/book-demo.php'; return true; }
 if (isset($routes[$path])) { require __DIR__ . '/' . $routes[$path]; return true; }
 if (preg_match('~^(services|locations|blog|case-studies)/([a-z0-9-]+)$~D',$path,$matches)) {
     $_GET['slug']=$matches[2]; require __DIR__ . '/' . ['services'=>'service.php','locations'=>'location.php','blog'=>'post.php','case-studies'=>'case-study.php'][$matches[1]]; return true;

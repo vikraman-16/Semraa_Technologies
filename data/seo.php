@@ -59,4 +59,5 @@ $postMetadata = [
  'design-better-enquiry-forms'=>['Better Enquiry Forms: A Practical Design Guide | Semraa','Design enquiry forms with useful questions, relevant fields, clear validation and helpful confirmations. Explore practical improvements for your business.'],
 ];
 foreach ($postMetadata as $slug=>$metadata) { $pages['post:' . $slug][0]=$metadata[0]; $pages['post:' . $slug][1]=$metadata[1]; }
+foreach (require __DIR__ . '/demo_pages.php' as $slug=>$demoPage) { $pages['demo:'.$slug] = [$demoPage['title'],$demoPage['description'],'book-demo/'.$slug]; }
 return array_map(static fn($p)=>['title'=>$p[0],'description'=>$p[1],'path'=>$p[2]], $pages);

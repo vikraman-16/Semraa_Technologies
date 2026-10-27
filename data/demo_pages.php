@@ -1,0 +1,108 @@
+<?php
+// Dedicated request pages explain the conversation, without claiming a finished product or result.
+return [
+ 'web-development'=>[
+  'title'=>'Website Development Enquiry near Tenkasi | Semraa',
+  'description'=>'Discuss a business website, online shop or redesign with Semraa near Tenkasi. Share your page requirements, existing website and budget for a tailored discussion.',
+  'heading'=>'Plan your business website with Semraa.',
+  'intro'=>'Request a website development discussion from our team near Tenkasi, serving Tirunelveli and nearby areas. Bring your customer journey, website goals and questions about the next release.',
+  'sections'=>[
+   'Choose the right website scope'=>'A business website, an online shop and a web application solve different problems. Tell us who will visit, what they need to find and which action should follow. We can discuss page structure, mobile navigation, enquiry handling and any connections to existing tools.',
+   'What to prepare'=>'Share your existing website if you have one, an approximate page count and any content or brand material already available. The budget field helps frame the discussion; it is not an automatic quotation. Scope, content responsibilities, hosting and ongoing maintenance are agreed separately.',
+  ],
+  'question'=>'Will this request include a website quotation?',
+  'answer'=>'It starts a requirements discussion. We review the pages, functionality, content and dependencies before proposing a scope and price.',
+  'related'=>'services/web-development',
+ ],
+ 'software-development'=>[
+  'title'=>'Custom Software Project Enquiry | Semraa near Tenkasi',
+  'description'=>'Request a custom software discussion with Semraa. Describe your workflow, expected users and integration needs to plan a practical business application.',
+  'heading'=>'Discuss software built around your workflow.',
+  'intro'=>'Explore a customer portal, business application or integration with Semraa in the Tenkasi area. Start with the work your team needs to manage, rather than a list of features alone.',
+  'sections'=>[
+   'Follow one real workflow'=>'Describe how a request enters your business, who reviews it and what needs to happen before completion. Repeated data entry, unclear ownership and disconnected reporting are useful starting points. Include the exceptions that make your process difficult to handle in a generic tool.',
+   'Plan a manageable first release'=>'Tell us how many people may use the application, which roles need access and what systems already hold the data. We can discuss a first release with a clear boundary, integrations, migration needs and handover. Delivery dates depend on the agreed requirements and review process.',
+  ],
+  'question'=>'Can you discuss integrations with an existing system?',
+  'answer'=>'Yes. Share the system names and available API documentation. Access, permissions and technical feasibility must be checked before an integration is committed.',
+  'related'=>'services/software-development',
+ ],
+ 'cloud-devops'=>[
+  'title'=>'Cloud & DevOps Consultation Request | Semraa',
+  'description'=>'Discuss cloud infrastructure and deployment workflows with Semraa. Share your provider, current setup and engineering team needs for a focused technical review.',
+  'heading'=>'Plan a clearer path from code to deployment.',
+  'intro'=>'Request a cloud and DevOps discussion about your current infrastructure, releases and operating needs. Semraa works from the Tenkasi area with teams through planned technical reviews.',
+  'sections'=>[
+   'Describe the current environment'=>'Tell us whether you use AWS, Azure, Google Cloud or on-premises infrastructure. Explain how software is released, where configuration is managed and what makes a rollback difficult. A high-level diagram is useful later; passwords and access keys do not belong in this form.',
+   'Make operational priorities explicit'=>'Your discussion can cover repeatable deployments, environment separation, monitoring, backups and recovery procedures. Team size and ownership affect the right level of automation. Any migration, production access or infrastructure change requires a separately agreed scope and authorisation.',
+  ],
+  'question'=>'Will submitting the form change our infrastructure?',
+  'answer'=>'No. This is a request for a discussion. Infrastructure access and changes are arranged only after the scope, permissions and responsibilities are agreed.',
+  'related'=>'services/cloud-devops',
+ ],
+ 'cybersecurity'=>[
+  'title'=>'Request a VAPT & Security Assessment Discussion | Semraa',
+  'description'=>'Discuss VAPT scope, security review or compliance readiness with Semraa. Share asset counts and assessment priorities before agreeing authorised security work.',
+  'heading'=>'Define the security assessment your business needs.',
+  'intro'=>'Request a scoped conversation about VAPT, security reviews or compliance readiness. Our team near Tenkasi begins with the systems you own, the risks you want to understand and the boundaries of authorised work.',
+  'sections'=>[
+   'Choose the assessment starting point'=>'Use the form to identify an application or network assessment, SOC readiness or a governance review. Approximate asset counts and relevant compliance needs help frame the discussion. Do not submit vulnerability details, credentials or sensitive customer records through this public form.',
+   'Agree permission and reporting first'=>'Testing requires written authorisation, named targets, timing and agreed exclusions. We can discuss reporting expectations, remediation priorities and retesting arrangements. A readiness discussion is not a certification or a guarantee that your systems meet a standard.',
+  ],
+  'question'=>'Does a request authorise security testing?',
+  'answer'=>'No. No testing begins from this form alone. Written authorisation and a defined scope are required before any assessment activity.',
+  'related'=>'services/cybersecurity',
+ ],
+ 'ui-ux'=>[
+  'title'=>'UI/UX Design Project Enquiry | Semraa near Tenkasi',
+  'description'=>'Discuss website, mobile app or business software design with Semraa. Describe your users and design scope to plan research, interfaces and usable prototypes.',
+  'heading'=>'Make your next digital journey easier to use.',
+  'intro'=>'Bring a website, mobile app or internal software challenge to a UI/UX design discussion. Semraa near Tenkasi helps connect the needs of your users with the decisions behind the interface.',
+  'sections'=>[
+   'Start with the people and their task'=>'Tell us who uses the product, what they are trying to complete and where they become confused or need assistance. An existing screen or a description of the journey can help identify whether the next step is research, information architecture, interaction design or visual refinement.',
+   'Define the design handover'=>'The scope may include wireframes, a clickable prototype or interface specifications for developers. We discuss accessibility, mobile behaviour, review rounds and how designs will be tested. Design deliverables and implementation are confirmed separately so responsibilities remain clear.',
+  ],
+  'question'=>'Can we discuss an existing interface redesign?',
+  'answer'=>'Yes. Explain the current journey and the problems you observe. Share approved screenshots or a public URL during follow-up so the review can focus on real tasks.',
+  'related'=>'services/ui-ux-design',
+ ],
+ 'it-consulting'=>[
+  'title'=>'IT Consulting Enquiry near Tenkasi | Semraa',
+  'description'=>'Request an IT consulting discussion with Semraa near Tenkasi. Explore technology roadmaps, system reviews and vendor decisions around your business priorities.',
+  'heading'=>'Turn a technology decision into a practical next step.',
+  'intro'=>'Use this enquiry to explain an IT decision, system concern or roadmap question. Semraa serves the Tenkasi area, Tirunelveli and nearby businesses through agreed consulting engagements.',
+  'sections'=>[
+   'Explain the decision in business terms'=>'Tell us what needs to change, who depends on the current setup and what happens if no action is taken. A technology roadmap, system review, vendor comparison and digital transformation plan need different inputs. Identify the decision owner and any timing or budget constraints.',
+   'Make the output useful to your team'=>'A consulting scope can define the questions to answer, documents to review and recommendations to deliver. We discuss trade-offs, dependencies and the people who will implement the next step. Recommendations are based on the information available and do not replace a separately scoped implementation.',
+  ],
+  'question'=>'Do we need to know the right technology before contacting you?',
+  'answer'=>'No. Describe the business problem and existing tools. The initial discussion helps identify what information is needed to compare practical options.',
+  'related'=>'services/it-consulting',
+ ],
+ 'semraa-nexus-db'=>[
+  'title'=>'Semraa Nexus DB Product Discussion & Demo Request',
+  'description'=>'Explore the Semraa Nexus DB business data concept. Share current tools, team size and reporting needs; product availability and demo scope are confirmed separately.',
+  'heading'=>'Explore the Semraa Nexus DB data concept.',
+  'intro'=>'Request a product discussion about organising business data and reporting. Semraa Nexus DB is presented as a product concept; availability, supported capabilities and demonstration material are confirmed by our team.',
+  'sections'=>[
+   'Bring the information problem'=>'Explain where your records live today, which tools your team uses and which reports require manual work. Include who needs to create, review or read the information. This context helps us discuss whether the concept is relevant to your process rather than assuming a ready-made fit.',
+   'Confirm what can be demonstrated'=>'The form records interest and requirements. It does not purchase a subscription, reserve a licence or promise a production-ready feature set. During follow-up, we confirm what material can be shown, any limitations and whether a custom solution or another approach deserves consideration.',
+  ],
+  'question'=>'Is Nexus DB available to purchase from this page?',
+  'answer'=>'No. This page collects requests for a product conversation. Availability, features, terms and pricing must be confirmed separately.',
+  'related'=>'products#semraa-nexus-db',
+ ],
+ 'work-pulse'=>[
+  'title'=>'Work Pulse Team Workflow Demo & Product Discussion',
+  'description'=>'Discuss the Work Pulse team workflow concept with Semraa. Share team size, existing tools and coordination challenges; demo availability is confirmed separately.',
+  'heading'=>'Explore a clearer rhythm for your team with Work Pulse.',
+  'intro'=>'Request a conversation about the Work Pulse team workflow concept. Share how work is assigned, reviewed and handed over so we can discuss the coordination problem you want to solve.',
+  'sections'=>[
+   'Describe how work moves through the team'=>'Tell us where tasks arrive, who assigns ownership and how progress is communicated. Delayed handovers, repeated status messages and unclear priorities are useful examples. Explain the tools already in place and the team members who would need to use a proposed workflow.',
+   'Review the concept before making commitments'=>'Work Pulse is an illustrative product concept, with features and availability to be confirmed. A request lets our team review your use case and explain what demonstration material is available. It is not a confirmed subscription, delivery commitment or promise of integration with your existing software.',
+  ],
+  'question'=>'Does requesting a demo create a Work Pulse account?',
+  'answer'=>'No. It records your interest for follow-up. Product access, capabilities and any commercial terms are discussed separately.',
+  'related'=>'products#work-pulse',
+ ],
+];

@@ -62,3 +62,12 @@ No ranking position is guaranteed. The temporary public review link remains inte
 The live `https://semraa.in/robots.txt` advertised `https://nixlab.co.in/sitemap.xml`; the live sitemap listed nixlab.co.in URLs. Both are corrected in this checkout's dynamic responses. The live HTTP and www variants returned HTTP 200 without a canonical redirect in the read-only check. The configured Apache rules must be deployed and checked on the real host. No live files, DNS, SSL settings or server configuration were changed.
 
 After upload verify https://semraa.in/robots.txt, https://semraa.in/sitemap.xml and canonical tags; HTTP/www must return a redirect to https://semraa.in with the path preserved. Verify clean URLs before submitting the sitemap in the semraa.in Search Console property. Keep existing verified business/profile data rather than inventing a new address. Real form persistence and delivery are still deployment prerequisites.
+
+
+## Dedicated demo and enquiry pages (27 October 2026)
+
+Eight pages under `/book-demo/{service}` provide request-specific preparation guidance, a relevant question and answer, and the matching form. They cover web development, software development, cloud/DevOps, cybersecurity, UI/UX, IT consulting, Nexus DB and Work Pulse. The main Book a Demo page links to all eight. Service and product links use the clean request URLs; old `?service=` links redirect permanently to them.
+
+Each page has a distinct title, description, canonical, social metadata and breadcrumbs, and is included in the 35-page baseline sitemap. These request pages explain the initial discussion; the existing service pages describe the service delivery. Product concepts remain labelled as concepts, without fabricated availability or outcomes. Unknown request types return 404 and invalid submissions stay on the appropriate page.
+
+The Render review deployment remains noindex and read-only. Search visibility requires the production domain, indexing enabled, and search-engine discovery; these changes do not guarantee rankings. Run `node tests/demo-pages.mjs http://127.0.0.1:8088` for dedicated form-page regression checks.
